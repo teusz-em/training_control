@@ -1,0 +1,54 @@
+.form {
+
+  &__wrapper {
+    height: 100vh;
+  }
+
+  &__heading {
+    text-align: center;
+  }
+
+  &__event{
+    margin: auto;
+    height: 90vh;
+    width: 90vw;
+    background-color: rgba(255, 255, 255, 0.98);
+
+  }
+
+  &__input{
+    border-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  &__duration, &__difficulty, &__hr {
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 20px auto;
+    padding-top: 10px;
+    width: 70%;
+    border-style: none;
+    border-bottom: #5170af solid 1px;
+    outline: none;
+
+    &::placeholder {
+      color: #5170af;
+      font-style: italic;
+      text-transform: uppercase;
+    }
+  }
+
+  &__submit {
+    width: 40%;
+    border-radius: 30px;
+    background-color: #5170af;
+    padding: 10px 40px;
+    color: white;
+    margin-top: 20px;
+  }
+
+}

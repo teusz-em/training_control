@@ -1,0 +1,32 @@
+.tasks {
+  &__container {
+    width: 90vw;
+  }
+
+  &__list {
+    width: 90%;
+    display: flex;
+    justify-content: space-evenly;
+
+    li {
+      text-align: center;
+      vertical-align: center;
+      display: block;
+      list-style: none;
+      padding: 20px;
+
+    }
+
+    .date {
+      background-color: #5170af;
+      color: #c1c7c3;
+
+    }
+
+  }
+
+
+
+}
+
+
