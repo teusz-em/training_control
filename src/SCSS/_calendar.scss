@@ -1,11 +1,36 @@
-.calendar_wrapper {
-  background-color: #5170af;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
+.calendar {
+
+  &_wrapper {
+    background-image: url("../img/pexels-karl-solano-2729899.jpg");
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 80px;
+    justify-content: center;
+    color: white;
+
+  }
+
+  &__icon, &__span {
+    color: #b35900;
+    background: transparent;
+    position: absolute;
+    z-index: 1;
+    top:30px;
+    right: 60px;
+    cursor: pointer;
+  }
+
+  &__span {
+    font-size: 2rem;
+    right: 120px;
+    top:35px;
+    color: black;
+    font-weight: bold;
+  }
 }
 
 .react-calendar {

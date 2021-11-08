@@ -2,12 +2,14 @@ import React, {useState} from "react";
 import DatePicker from 'react-date-picker';
 import { compareAsc, format } from 'date-fns'
 import {db} from "./firebase";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlusSquare } from '@fortawesome/free-solid-svg-icons'
 
 const NewEvent = ({setTasks}) => {
 
     const [form, setForm] = useState( {duration: '', difficulty: '', hr: '' })
     const [date, setDate] = useState(new Date());
-
+    const [modal, setModal] = useState(true)
 
     const onChange = (e) => {
         const {name, value} = e.target;
@@ -19,8 +21,15 @@ const NewEvent = ({setTasks}) => {
         })
     }
 
+    const onModalChange = () => {
+        setModal(!modal)
+    }
+
+
     const handleSubmit = (e) => {
         e.preventDefault()
+
+        setModal(!modal)
 
         db.collection("new task").add({
             form,
@@ -35,48 +44,63 @@ const NewEvent = ({setTasks}) => {
             });
     }
 
-    return (
-        <div className={"form__wrapper"}>
-            <h1 className={"form__heading"}>Add new training</h1>
-            <form className={"form__event"}  onSubmit={handleSubmit}>
-                <div className={"form__input"}>
-
-                    <input className={"form__duration"}
-                           type={"number"}
-                           name="duration"
-                           value={form.duration}
-                           onChange={onChange}
-                           placeholder={"enter training duration"}
-                    />
-
-                    <select className={"form__difficulty"}
-                           type="text"
-                           name="difficulty"
-                           value={form.difficulty}
-                           onChange={onChange}>
-                        <option value={"easy"}>easy</option>
-                        <option value={"medium"}>medium</option>
-                        <option value={"hard"}>hard</option>
-                    </select>
-
-                    <input className={"form__hr"}
-                           type={"number"}
-                           name="hr"
-                           value={form.hr}
-                           onChange={onChange}
-                           placeholder={"enter heart rate"}/>
-                    <DatePicker value={date}
-                                onChange={setDate}
-                    />
-                    <input className={"form__submit"} type={"submit"} value={"Zapisz"}/>
-                </div>
-            </form>
+    if (modal === false) {
+        return <div  className={"form__close"} onClick={onModalChange}>
+            <span className={"calendar__span"}>ADD</span>
+            <FontAwesomeIcon icon={faPlusSquare} className={"calendar__icon"} size={"3x"}  />
         </div>
+    }
+    return (
+        <>
+            <div className={"form__wrapper form__none"}>
+                <form className={"form__event"}  onSubmit={handleSubmit}>
+                    <h1 className={"form__heading"}><span>Add</span> new training</h1>
+                    <div className={"form__input"}>
+                        <div className={"form__box"}>
+                            <input className={"form__inputs"}
+                                   type={"number"}
+                                   name="duration"
+                                   value={form.duration}
+                                   onChange={onChange}
+                                    placeholder={" "}
+                                   id="duration"
+                            />
+                            <label className={"form__label"} for='duration'>Traning duration</label>
+                        </div>
+                        <div className={"form__box"}>
+                            <input className={"form__inputs"}
+                                    typeof={"text"}
+                                    name="difficulty"
+                                    value={form.difficulty}
+                                    onChange={onChange}
+                                    placeholder= {' '}
+                            />
+                            <label className={"form__label"} For='difficulty'>Trening type</label>
+                        </div>
+
+                        <div className={"form__box"}>
+                            <input className={"form__inputs"}
+                                   type={"number"}
+                                   name="hr"
+                                   value={form.hr}
+                                   onChange={onChange}
+                                   placeholder={" "}/>
+                            <label className={"form__label"} For='duration'>Heart rate</label>
+                        </div>
+
+                        <DatePicker value={date}
+                                    onChange={setDate}
+                        />
+                        <input className={"form__submit"} type={"submit"} value={"Save training"}/>
+                    </div>
+                </form>
+            </div>
+
+        </>
+
 
     );
 };
-
-
 
 
 export default NewEvent

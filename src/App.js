@@ -4,17 +4,19 @@ import './App.scss';
 import MyCalendar from "./MyCalendar";
 import NewEvent from "./newEvent";
 import Tasks from "./Tasks";
+import Calendar from "react-calendar";
 
 
 
 function App() {
     const [value, onChange] = useState(new Date());
-
     const [tasks, setTasks] = useState(false)
+    const [active, setActive] = useState('')
 
     useEffect(() => {
 
         db.collection("new task")
+            // .where( "date", "==", "19.11.2021" )
             .get()
             .then((querySnapshot) => {
                 const tmp = [];
@@ -26,6 +28,8 @@ function App() {
                     console.log(tmp)
                 });
                 setTasks(tmp);
+
+
             })
     },[])
 
@@ -33,7 +37,7 @@ function App() {
     <div className="App">
       <header className="App-header">
           <NewEvent setTasks={setTasks}/>
-          <MyCalendar/>
+          <MyCalendar setActive={setActive}/>
           <Tasks tasks={tasks}/>
       </header>
     </div>

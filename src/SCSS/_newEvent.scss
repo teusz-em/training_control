@@ -1,54 +1,260 @@
 .form {
 
+
   &__wrapper {
+    font-family: "Fira Sans", serif;
     height: 100vh;
-  }
-
-  &__heading {
-    text-align: center;
-  }
-
-  &__event{
-    margin: auto;
-    height: 90vh;
-    width: 90vw;
-    background-color: rgba(255, 255, 255, 0.98);
-
-  }
-
-  &__input{
-    border-style: none;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    position: absolute;
+    z-index: 1;
+    background-image: url("../img/running2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+
   }
 
-  &__duration, &__difficulty, &__hr {
+  &__heading {
+    font-family: inherit;
+    font-size: 1.8rem;
+    color: #cc6600;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-left: 150px;
+
+    span {
+      color: black;
+    }
+  }
+
+  &__event{
+    margin: 50px;
+    width: 60%;
+    height: 100vh;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+
+  }
+
+  &__input{
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-left: 150px;
+
+
+
+  }
+
+  &__inputs, &__difficulty, {
     text-align: center;
     font-size: 1.2rem;
-    margin: 20px auto;
-    padding-top: 10px;
-    width: 70%;
-    border-style: none;
-    border-bottom: #5170af solid 1px;
+    width: 80%;
+    border: #cc6600 solid 2px;
+    border-radius: 5px;
+    background: transparent;
     outline: none;
+    font-family: inherit;
+    color: black;
+    padding: 5px;
+    overflow: hidden;
+
+    option {
+      background-color: #b35900;
+      border-radius: 10px;
+    }
+
+    &:hover {
+      border-color: #b35900;
+      box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    }
+
+    &:focus {
+      border-color: #b35900;
+    }
+
 
     &::placeholder {
-      color: #5170af;
+      color: #cc6600;
       font-style: italic;
       text-transform: uppercase;
     }
   }
 
+  &__box{
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__label {
+    position: absolute;
+    left: 2rem;
+    top:0.7rem;
+    color: #b35900;
+    cursor: text;
+    transition: top 200ms ease-in,
+                left 200ms ease-in,
+                font-size 200ms ease-in;
+  }
+
+
+
+
   &__submit {
-    width: 40%;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 1.2rem;
+    text-transform: uppercase;
     border-radius: 30px;
-    background-color: #5170af;
-    padding: 10px 40px;
-    color: white;
-    margin-top: 20px;
+    padding: 15px 60px;
+    color: #2d1a06;
+    margin: 20px 0;
+    transition: transform 0.3s ease;
+    position: relative;
+    border: none;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+
+    background: radial-gradient(circle, rgba(204,102,0,1) 0%, rgba(84,42,0,1) 100%);
+
+
+    &:hover{
+      box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    }
+
+    &:active {
+
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    }
+
+  }
+
+  &__close {
+    //padding: 20px;
+    //background-color: red;
+    position: absolute;
+    right: 20px;
+    top: 20px;
   }
 
 }
+
+.react-date-picker {
+  &__wrapper {
+    background-color: transparent ;
+    //color: #c1c7c3;
+    padding: 5px 15px;
+    font-family: inherit;
+    font-size: 1.2rem;
+    outline: none;
+    border-radius: 5px;
+    border: #cc6600 solid 2px !important;
+
+    &:hover {
+      border: #b35900 solid 2px !important;
+      box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    }
+  }
+
+
+  &__inputGroup__day, &__inputGroup__month, &__inputGroup__year{
+    color: black;
+  }
+
+  &__button {
+    background: transparent !important;
+    border-radius: 5px;
+    margin-left: 4px;
+
+
+  }
+
+  &__button__icon {
+    stroke: #b35900;
+  }
+
+}
+
+.react-calendar {
+
+  background: black !important;
+
+
+
+  &__month-view__weekdays__weekday {
+    color: black;
+  }
+
+  &__tile{
+
+    &:focus {
+      background: rgba(175, 94, 7, 0.5) !important;
+    }
+
+    &--active {
+      background: black !important;
+      color: #af5e07 !important;
+    }
+
+    &--now {
+      background: #b76b17 !important;
+      color: #643608 !important;
+    }
+
+    &:hover {
+      background: #854909 !important;
+    }
+  }
+
+
+
+  &__navigation {
+    background: radial-gradient(circle, rgba(137,70,3,1) 0%, rgba(204,102,0,1) 71%);
+
+
+    &__prev2-button, &__next2-button {
+      display: none;
+    }
+
+    &__label, &__prev-button, &__next-button, {
+
+      &:focus {
+        background: rgba(175, 94, 7, 0.5) !important;
+      }
+
+      &:hover {
+        background: #854909 !important;
+      }
+
+    }
+
+
+  }
+
+  &__viewContainer {
+    background: radial-gradient(circle, rgba(204,102,0,1) 0%, rgba(137,70,3,1) 83%);
+  }
+}
+
+.form__inputs:focus ~ .form__label,
+.form__inputs:not(:placeholder-shown).form__inputs:not(:focus)~.form__label {
+  top:-0.9rem;
+  font-size: 0.8rem;
+  left: 1.4rem ;
+  background-color: transparent;
+}
+
+

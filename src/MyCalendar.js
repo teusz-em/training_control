@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import Calendar from "react-calendar";
 import { format } from "date-fns";
+import {db} from "./firebase";
 
-const MyCalendar = () => {
+const MyCalendar = ({setActive}) => {
     const [value, setValue] = useState(new Date());
 
     function onChange(nextValue) {
@@ -11,7 +12,8 @@ const MyCalendar = () => {
 
     const tileContent = ({ date, view }) =>
         view === "month"
-    console.log(value.getMonth())
+    console.log(value)
+
 
     return (
         <div className={"calendar_wrapper"}>

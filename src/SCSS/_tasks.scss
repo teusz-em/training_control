@@ -1,12 +1,25 @@
 .tasks {
   &__container {
-    width: 90vw;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(0deg, rgba(204,102,0,0.9789787741268382) 0%, rgba(52,50,50,1) 91%);
+  }
+
+  &__list:nth-child(2n) {
+    background: linear-gradient(70deg, rgba(34,33,33,1) 0%, rgba(160,159,157,1) 100%)
   }
 
   &__list {
-    width: 90%;
+
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    background: linear-gradient(70deg, rgba(160,159,157,1) 0%, rgba(34,33,33,1) 100%);
+    margin: 3px;
+    border-radius: 10px;
+    width: 70%;
+    height: 50px;
 
     li {
       text-align: center;
@@ -14,12 +27,17 @@
       display: block;
       list-style: none;
       padding: 20px;
+      color: white;
 
+      font-size: 1.2rem;
     }
 
     .date {
-      background-color: #5170af;
+      background-color: #854909;
       color: #c1c7c3;
+      width: 50px;
+      margin: 5px;
+      border-radius: 5px;
 
     }
 
