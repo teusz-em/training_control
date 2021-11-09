@@ -3,7 +3,15 @@ import {db} from "./firebase";
 import Calendar from "react-calendar";
 import { format } from 'date-fns'
 
-const TaskList = ({tasks}) => {
+const TaskList = ({tasks, value}) => {
+    const [month, setMonth] = useState('')
+
+
+    useEffect(() => {
+        setMonth((format(value, 'MMMM')))
+    },[value])
+
+
 
     if (!tasks) {
         return (
@@ -13,6 +21,7 @@ const TaskList = ({tasks}) => {
 
         return (
             <div className={"tasks__container"}>
+                <h1 className={"tasks__month"}>{month}</h1>
                 {tasks.map(task => {
 
                         return (
@@ -21,6 +30,8 @@ const TaskList = ({tasks}) => {
                                 <li>{task.form.duration} min</li>
                                 <li>{task.form.difficulty}</li>
                                 <li>{task.form.hr} bpm</li>
+                                <button onClick={(e) => db.collection("new task").doc(task.id).delete().then }>delete</button>
+
                             </ul>
                         )
                     }

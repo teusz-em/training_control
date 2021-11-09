@@ -3,16 +3,16 @@ import Calendar from "react-calendar";
 import { format } from "date-fns";
 import {db} from "./firebase";
 
-const MyCalendar = ({setActive}) => {
-    const [value, setValue] = useState(new Date());
+const MyCalendar = ({onChange, value}) => {
+    // const [value, setValue] = useState(new Date());
 
-    function onChange(nextValue) {
-        setValue(nextValue);
-    }
+    // function onChange(nextValue) {
+    //     setValue(nextValue);
+    // }
 
     const tileContent = ({ date, view }) =>
         view === "month"
-    console.log(value)
+
 
 
     return (

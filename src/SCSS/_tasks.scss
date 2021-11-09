@@ -5,6 +5,10 @@
     flex-direction: column;
     align-items: center;
     background: linear-gradient(0deg, rgba(204,102,0,0.9789787741268382) 0%, rgba(52,50,50,1) 91%);
+
+    @media screen and (max-width: 420px){
+
+    }
   }
 
   &__list:nth-child(2n) {
@@ -21,6 +25,14 @@
     width: 70%;
     height: 50px;
 
+    @media screen and (max-width: 420px){
+      width: 95%;
+      height: auto;
+      gap: 2px;
+      text-wrap: inherit;
+      justify-content: space-between;
+    }
+
     li {
       text-align: center;
       vertical-align: center;
@@ -28,19 +40,36 @@
       list-style: none;
       padding: 20px;
       color: white;
-
+      width: 80px;
       font-size: 1.2rem;
+
+      @media screen and (max-width: 420px){
+        width: 20px;
+        text-wrap: inherit;
+        padding: 20px 0;
+      }
     }
 
     .date {
-      background-color: #854909;
-      color: #c1c7c3;
-      width: 50px;
+      text-align: center;
+      padding-bottom: 4px;
+      background-color: black;
+      color: #af5e07;
       margin: 5px;
       border-radius: 5px;
 
-    }
+      @media screen and (max-width: 420px){
+        padding: 0;
 
+      }
+    }
+  }
+
+  &__month {
+    padding: 20px;
+    color: #cc6600;
+    font-size: 1.4rem;
+    text-transform: uppercase;
   }
 
 

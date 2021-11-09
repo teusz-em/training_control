@@ -51,7 +51,7 @@
     text-align: center;
     font-weight: 400;
     font-size: 1.1em;
-    color: #5170af;
+    color: black
 
   }
 
@@ -64,7 +64,7 @@
     height: 10vh;
     text-align: center;
     padding: 0.6em 0em;
-    background-color: white;
+    background-color: #854909;
     border-radius: 50px;
     cursor: pointer;
     }
@@ -72,24 +72,61 @@
   &__navigation {
     height: 2.5rem;
     margin-bottom: 10px;
+    background: radial-gradient(circle, rgba(137,70,3,1) 0%, rgba(204,102,0,1) 71%);
 
+    button {
+      min-width: 40px;
+      background: white;
+      font-size: 1.4rem;
+      padding: 0;
+      margin: 0 3px;
+      border: none;
+      text-transform: lowercase;
     }
 
 
-  &__navigation button {
-    min-width: 40px;
-    background: white;
-    font-size: 1.4rem;
-    padding: 0;
-    margin: 0 3px;
-    border: none;
-    text-transform: lowercase;
+    &__prev2-button, &__next2-button {
+      display: none;
+    }
+
+    &__label, &__prev-button, &__next-button, {
+
+      &:focus {
+        background: rgba(175, 94, 7, 0.5) !important;
+      }
+
+      &:hover {
+        background: #854909 !important;
+      }
+    }
   }
-  &__month-view__days__day--neighboringMonth {
-    color: #c1c7c3;
+
+  &__month-view__weekdays__weekday {
+    color: black !important;
   }
-  &__tile--active {
-    background: #006edc;
-    color: white;
+
+  &__tile{
+
+    &:focus {
+      background: black !important;
+    }
+
+    &--active {
+      background: black !important;
+      color: #af5e07 !important;
+    }
+
+    &--now {
+      background: #b76b17 !important;
+      color: #643608 !important;
+    }
+
+    &:hover {
+      background: #854909 !important;
+    }
+  }
+
+  &__viewContainer {
+    background: radial-gradient(circle, rgba(204,102,0,1) 0%, rgba(137,70,3,1) 83%);
   }
 }

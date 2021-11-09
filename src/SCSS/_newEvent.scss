@@ -55,7 +55,9 @@
     gap: 40px;
     margin-left: 150px;
 
+  }
 
+  &__plans {
 
   }
 
@@ -111,28 +113,33 @@
                 font-size 200ms ease-in;
   }
 
+  &__buttons {
+    display: flex;
+    gap: 50px;
+  }
 
 
 
-  &__submit {
+
+  &__submit, &__plans {
     text-decoration: none;
     font-family: inherit;
-    font-size: 1.2rem;
+    font-size: 2rem;
     text-transform: uppercase;
     border-radius: 30px;
-    padding: 15px 60px;
+    padding: 15px 15px;
     color: #2d1a06;
     margin: 20px 0;
     transition: transform 0.3s ease;
     position: relative;
     border: none;
     box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
-
     background: radial-gradient(circle, rgba(204,102,0,1) 0%, rgba(84,42,0,1) 100%);
 
 
     &:hover{
       box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+
     }
 
     &:active {
@@ -196,56 +203,6 @@
 
   &__month-view__weekdays__weekday {
     color: black;
-  }
-
-  &__tile{
-
-    &:focus {
-      background: rgba(175, 94, 7, 0.5) !important;
-    }
-
-    &--active {
-      background: black !important;
-      color: #af5e07 !important;
-    }
-
-    &--now {
-      background: #b76b17 !important;
-      color: #643608 !important;
-    }
-
-    &:hover {
-      background: #854909 !important;
-    }
-  }
-
-
-
-  &__navigation {
-    background: radial-gradient(circle, rgba(137,70,3,1) 0%, rgba(204,102,0,1) 71%);
-
-
-    &__prev2-button, &__next2-button {
-      display: none;
-    }
-
-    &__label, &__prev-button, &__next-button, {
-
-      &:focus {
-        background: rgba(175, 94, 7, 0.5) !important;
-      }
-
-      &:hover {
-        background: #854909 !important;
-      }
-
-    }
-
-
-  }
-
-  &__viewContainer {
-    background: radial-gradient(circle, rgba(204,102,0,1) 0%, rgba(137,70,3,1) 83%);
   }
 }
 

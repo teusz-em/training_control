@@ -3,7 +3,7 @@ import DatePicker from 'react-date-picker';
 import { compareAsc, format } from 'date-fns'
 import {db} from "./firebase";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlusSquare } from '@fortawesome/free-solid-svg-icons'
+import { faPlusSquare, faSignInAlt, faSave } from '@fortawesome/free-solid-svg-icons'
 
 const NewEvent = ({setTasks}) => {
 
@@ -24,7 +24,6 @@ const NewEvent = ({setTasks}) => {
     const onModalChange = () => {
         setModal(!modal)
     }
-
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -91,9 +90,15 @@ const NewEvent = ({setTasks}) => {
                         <DatePicker value={date}
                                     onChange={setDate}
                         />
-                        <input className={"form__submit"} type={"submit"} value={"Save training"}/>
+                        <div className={"form__buttons"}>
+                            <button className={"form__submit"} type={"submit"} value={"Save training"}> <FontAwesomeIcon icon={faSave}/></button>
+                            <button className={"form__plans"} onClick={onModalChange}> <FontAwesomeIcon icon={faSignInAlt}/></button>
+                        </div>
+
                     </div>
+
                 </form>
+
             </div>
 
         </>
