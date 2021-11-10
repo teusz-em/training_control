@@ -1,17 +1,14 @@
 import React, {useEffect, useState} from "react";
-import {db} from "./firebase";
-import Calendar from "react-calendar";
 import { format } from 'date-fns'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
-const TaskList = ({tasks, value}) => {
+const TaskList = ({tasks, value, onDelete}) => {
     const [month, setMonth] = useState('')
-
 
     useEffect(() => {
         setMonth((format(value, 'MMMM')))
     },[value])
-
-
 
     if (!tasks) {
         return (
@@ -22,24 +19,20 @@ const TaskList = ({tasks, value}) => {
         return (
             <div className={"tasks__container"}>
                 <h1 className={"tasks__month"}>{month}</h1>
-                {tasks.map(task => {
-
+                {tasks.map((task, i) => {
                         return (
-                            <ul className={"tasks__list"}>
-                                <li className={"date"}>{new Date(task.date.seconds * 1000).toLocaleDateString()}</li>
+                            <ul key={i} className={"tasks__list"}>
+                                <li className={"date"}><span>{new Date(task.date.seconds * 1000).toLocaleDateString()}</span></li>
                                 <li>{task.form.duration} min</li>
                                 <li>{task.form.difficulty}</li>
                                 <li>{task.form.hr} bpm</li>
-                                <button onClick={(e) => db.collection("new task").doc(task.id).delete().then }>delete</button>
-
+                                <button className={"form__trash--btn"}  onClick={() => onDelete(task.id)}><FontAwesomeIcon className={"form__trash"} icon={faTrash}/></button>
                             </ul>
                         )
                     }
                 )}
-
             </div>
         )
 }
-
 
 export default TaskList

@@ -1,12 +1,10 @@
 import React, {useState} from "react";
 import DatePicker from 'react-date-picker';
-import { compareAsc, format } from 'date-fns'
 import {db} from "./firebase";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusSquare, faSignInAlt, faSave } from '@fortawesome/free-solid-svg-icons'
 
 const NewEvent = ({setTasks}) => {
-
     const [form, setForm] = useState( {duration: '', difficulty: '', hr: '' })
     const [date, setDate] = useState(new Date());
     const [modal, setModal] = useState(true)
@@ -35,12 +33,13 @@ const NewEvent = ({setTasks}) => {
             date
         })
             .then((docRef) => {
-                console.log(docRef)
                 setTasks(state => [...state, {id: docRef, form, date: {seconds: date.getTime() / 1000}}]);
             })
             .catch((error) => {
                 console.error("Error adding document: ", error);
             });
+
+        setForm({duration: '', difficulty: '', hr: ''})
     }
 
     if (modal === false) {
@@ -49,12 +48,14 @@ const NewEvent = ({setTasks}) => {
             <FontAwesomeIcon icon={faPlusSquare} className={"calendar__icon"} size={"3x"}  />
         </div>
     }
+
     return (
         <>
             <div className={"form__wrapper form__none"}>
                 <form className={"form__event"}  onSubmit={handleSubmit}>
                     <h1 className={"form__heading"}><span>Add</span> new training</h1>
                     <div className={"form__input"}>
+
                         <div className={"form__box"}>
                             <input className={"form__inputs"}
                                    type={"number"}
@@ -64,8 +65,9 @@ const NewEvent = ({setTasks}) => {
                                     placeholder={" "}
                                    id="duration"
                             />
-                            <label className={"form__label"} for='duration'>Traning duration</label>
+                            <label className={"form__label"}>Traning duration</label>
                         </div>
+
                         <div className={"form__box"}>
                             <input className={"form__inputs"}
                                     typeof={"text"}
@@ -74,7 +76,7 @@ const NewEvent = ({setTasks}) => {
                                     onChange={onChange}
                                     placeholder= {' '}
                             />
-                            <label className={"form__label"} For='difficulty'>Trening type</label>
+                            <label className={"form__label"}>Trening type</label>
                         </div>
 
                         <div className={"form__box"}>
@@ -83,8 +85,9 @@ const NewEvent = ({setTasks}) => {
                                    name="hr"
                                    value={form.hr}
                                    onChange={onChange}
-                                   placeholder={" "}/>
-                            <label className={"form__label"} For='duration'>Heart rate</label>
+                                   placeholder={" "}
+                            />
+                            <label className={"form__label"}>Heart rate</label>
                         </div>
 
                         <DatePicker value={date}

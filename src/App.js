@@ -4,18 +4,22 @@ import './App.scss';
 import MyCalendar from "./MyCalendar";
 import NewEvent from "./newEvent";
 import Tasks from "./Tasks";
-import Calendar from "react-calendar";
-import {format} from "date-fns";
 
 function App() {
     const [value, setValue] = useState(new Date());
-    const [tasks, setTasks] = useState(false)
+    const [tasks, setTasks] = useState([]);
 
     function onChange(nextValue) {
         setValue(nextValue);
     }
 
-    console.log(value)
+    function onDelete(id) {
+        db.collection("new task").doc(id).delete()
+            .then(() => {
+                const updatedValues = [...tasks].filter((task) => task.id !== id)
+                setTasks(updatedValues)
+                })
+    }
 
     useEffect(() => {
 
@@ -36,9 +40,7 @@ function App() {
                     })
                 });
                 setTasks(tmp);
-                console.log(tmp)
             })
-
     },[value])
 
     return (
@@ -46,7 +48,7 @@ function App() {
       <header className="App-header">
           <NewEvent setTasks={setTasks}/>
           <MyCalendar onChange={onChange} value={value}/>
-          <Tasks tasks={tasks} value={value}/>
+          <Tasks tasks={tasks} value={value} onDelete={onDelete}/>
       </header>
     </div>
   );

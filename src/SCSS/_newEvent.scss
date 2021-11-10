@@ -1,6 +1,5 @@
 .form {
 
-
   &__wrapper {
     font-family: "Fira Sans", serif;
     height: 100vh;
@@ -16,6 +15,24 @@
     background-repeat: no-repeat;
     background-position: left;
 
+    @media screen and (max-width: 1200px){
+      background-size: 110% 85%;
+      background-position: -100px 50px ;
+      background-color: black;
+    }
+
+    @media screen and (max-width: 420px){
+      background-size: 130% 60%;
+      background-position: -60px;
+      background-color: black;
+    }
+
+    @media screen and (max-width: 320px){
+      background-size: 130% 60%;
+      background-position: -60px;
+      background-color: black;
+    }
+
   }
 
   &__heading {
@@ -27,9 +44,38 @@
     font-weight: bold;
     margin-left: 150px;
 
+    @media screen and (max-width: 1200px) {
+      margin-left: 165px;
+      text-wrap: none;
+    }
+
+    @media screen and (max-width:420px) {
+      margin-left: 10px;
+      text-wrap: none;
+
+      @media (max-height: 820px) {
+        margin-bottom: 170px;
+      }
+      @media (max-height: 740px) {
+        margin-bottom: 140px;
+      }
+      @media (max-height: 670px) {
+        margin-bottom: 90px;
+      }
+      @media (max-height: 570px) {
+        margin-bottom: 40px;
+      }
+    }
+
     span {
       color: black;
+
+      @media screen and (max-width: 420px) {
+        color: #cc6600;
+      }
     }
+
+
   }
 
   &__event{
@@ -43,6 +89,17 @@
     justify-content: center;
     gap: 30px;
 
+    @media screen and (max-width: 800px) {
+      gap:  60px;
+    }
+
+    @media screen and (max-width: 1200px){
+      gap: 80px;
+
+      @media screen and (max-width: 420px){
+        gap: 10px;
+      }
+    }
   }
 
   &__input{
@@ -55,9 +112,39 @@
     gap: 40px;
     margin-left: 150px;
 
+    @media screen and (max-width: 1200px) {
+      margin-left: 200px;
+      gap: 50px;
+    }
+
+    @media screen and (max-width: 420px) {
+      margin-left: 130px;
+      gap: 50px;
+    }
+
+    @media screen and (max-width: 320px) {
+      margin-left: 60px;
+      gap: 50px;
+    }
+
+
   }
 
-  &__plans {
+  &__trash {
+    color: black;
+    background-color: transparent;
+    cursor: pointer;
+
+    &:hover {
+      font-size: 1.2rem;
+    }
+
+    &--btn {
+      background-color: transparent;
+      border: none;
+      width: 20px;
+
+    }
 
   }
 
@@ -73,6 +160,10 @@
     color: black;
     padding: 5px;
     overflow: hidden;
+
+    @media screen and (max-width: 321px){
+      font-size: initial
+    }
 
     option {
       background-color: #b35900;
@@ -116,10 +207,14 @@
   &__buttons {
     display: flex;
     gap: 50px;
+
+    @media screen and (max-width: 420px) {
+      padding-right: 100px;
+    }
+    @media screen and (max-width: 320px) {
+      padding-right: 60px;
+    }
   }
-
-
-
 
   &__submit, &__plans {
     text-decoration: none;
@@ -135,7 +230,6 @@
     border: none;
     box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
     background: radial-gradient(circle, rgba(204,102,0,1) 0%, rgba(84,42,0,1) 100%);
-
 
     &:hover{
       box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
@@ -170,6 +264,10 @@
     border-radius: 5px;
     border: #cc6600 solid 2px !important;
 
+    @media screen and (max-width: 321px){
+      font-size: initial
+    }
+
     &:hover {
       border: #b35900 solid 2px !important;
       box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
@@ -185,21 +283,15 @@
     background: transparent !important;
     border-radius: 5px;
     margin-left: 4px;
-
-
   }
 
   &__button__icon {
     stroke: #b35900;
   }
-
 }
 
 .react-calendar {
-
   background: black !important;
-
-
 
   &__month-view__weekdays__weekday {
     color: black;
