@@ -32,7 +32,6 @@
       background-position: -60px;
       background-color: black;
     }
-
   }
 
   &__heading {
@@ -74,8 +73,6 @@
         color: #cc6600;
       }
     }
-
-
   }
 
   &__event{
@@ -126,8 +123,6 @@
       margin-left: 60px;
       gap: 50px;
     }
-
-
   }
 
   &__trash {
@@ -143,9 +138,7 @@
       background-color: transparent;
       border: none;
       width: 20px;
-
     }
-
   }
 
   &__inputs, &__difficulty, {
@@ -178,7 +171,6 @@
     &:focus {
       border-color: #b35900;
     }
-
 
     &::placeholder {
       color: #cc6600;
@@ -240,9 +232,7 @@
 
       box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
     }
-
   }
-
 }
 
 .react-date-picker {

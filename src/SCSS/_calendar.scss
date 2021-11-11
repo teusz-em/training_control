@@ -43,7 +43,6 @@
   text-align: center;
 
   @media screen and (max-width: 1200px) {
-
   }
 
   button {
@@ -52,13 +51,11 @@
     font-size: 1.3rem;
   }
 
-  //Mon Tues
   &__month-view__weekdays {
     text-align: center;
     font-weight: 400;
     font-size: 1.1em;
     color: black
-
   }
 
   &__month-view__weekdays__weekday abbr {
@@ -99,7 +96,6 @@
       border: none;
       text-transform: lowercase;
     }
-
 
     &__prev2-button, &__next2-button {
       display: none;

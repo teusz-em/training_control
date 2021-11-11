@@ -1,7 +1,7 @@
 import React from "react";
 import Calendar from "react-calendar";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlusSquare, faSignInAlt, faSave } from '@fortawesome/free-solid-svg-icons'
+import { faPlusSquare} from '@fortawesome/free-solid-svg-icons'
 
 
 

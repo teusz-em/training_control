@@ -2,12 +2,11 @@ import React, {useState} from "react";
 import DatePicker from 'react-date-picker';
 import {db} from "./firebase";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlusSquare, faSignInAlt, faSave } from '@fortawesome/free-solid-svg-icons'
+import {faSignInAlt, faSave} from '@fortawesome/free-solid-svg-icons'
 
 const NewEvent = ({setTasks, setModal, modal}) => {
     const [form, setForm] = useState( {duration: '', difficulty: '', hr: '' })
     const [date, setDate] = useState(new Date());
-    // const [modal, setModal] = useState(true)
 
     const onChange = (e) => {
         const {name, value} = e.target;
@@ -43,10 +42,6 @@ const NewEvent = ({setTasks, setModal, modal}) => {
     }
 
     if (modal === false) {
-        // return <div  className={"form__close"} onClick={onModalChange}>
-        //     <span className={"calendar__span"}>ADD</span>
-        //     <FontAwesomeIcon icon={faPlusSquare} className={"calendar__icon"} size={"3x"}  />
-        // </div>
         return <></>
     }
 
