@@ -8,6 +8,8 @@ import Tasks from "./Tasks";
 function App() {
     const [value, setValue] = useState(new Date());
     const [tasks, setTasks] = useState([]);
+    const [modal, setModal] = useState(true)
+
 
     function onChange(nextValue) {
         setValue(nextValue);
@@ -46,8 +48,8 @@ function App() {
     return (
     <div className="App">
       <header className="App-header">
-          <NewEvent setTasks={setTasks}/>
-          <MyCalendar onChange={onChange} value={value}/>
+          <NewEvent setTasks={setTasks} setModal={setModal} modal={modal}/>
+          <MyCalendar onChange={onChange} value={value} setModal={setModal} modal={modal}/>
           <Tasks tasks={tasks} value={value} onDelete={onDelete}/>
       </header>
     </div>

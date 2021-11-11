@@ -22,50 +22,16 @@
   &__icon, &__span {
     color: #b35900;
     background: transparent;
-    position: absolute;
-    z-index: 1;
-    top:120px;
     right: 60px;
     cursor: pointer;
-
-    @media screen and (max-width: 1200px) {
-      top: 280px;
-    }
-
-    @media screen and (max-width: 800px) {
-      top: 230px;
-    }
-    @media screen and (max-width: 425px){
-      top: 120px;
-      right: 10px;
-    }
-    @media screen and (max-width: 425px) and (max-height: 670px) {
-      top: 120px;
-      right: 10px;
-    }
-    @media screen and (max-width: 425px) and (max-height: 570px) {
-      top: 80px;
-      right: 0px;
-    }
-
   }
 
   &__span {
     font-size: 2rem;
     right: 120px;
-    top:125px;
     color: black;
     font-weight: bold;
-    @media screen and (max-width: 1200px) {
-      top: 288px;
-    }
-    @media screen and (max-width: 800px) {
-      top: 235px;
-    }
-    @media screen and (max-width: 425px) {
-      display: none;
-    }
-
+    margin-right: 5px ;
   }
 }
 
@@ -122,11 +88,11 @@
   &__navigation {
     height: 2.5rem;
     margin-bottom: 10px;
-    background: radial-gradient(circle, rgba(137,70,3,1) 0%, rgba(204,102,0,1) 71%);
+    background: radial-gradient(circle, rgba(137,70,3,1) 0%, rgba(204,102,0,1) 71%) !important;
 
     button {
       min-width: 40px;
-      background: white;
+      background: none;
       font-size: 1.4rem;
       padding: 0;
       margin: 0 3px;
@@ -156,6 +122,7 @@
   }
 
   &__tile{
+    background: none;
 
     &:focus {
       background: black !important;
